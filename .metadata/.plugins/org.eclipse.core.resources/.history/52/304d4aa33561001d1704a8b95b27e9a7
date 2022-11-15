@@ -1,0 +1,65 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.ImpuestoRepository;
+import com.Daniel.request.CreateImpuestoRequest;
+import com.Daniel.response.ImpuestoResponse;
+import com.Daniel.entity.Impuesto;
+import com.Daniel.feingclients.VehiculoFeingClient;
+
+
+
+@Service
+public class MunicipioService {
+	
+	@Autowired
+	VehiculoFeingClient vehiculoFeignClient;
+	
+	@Autowired
+	ImpuestoRepository impuestoRepository;
+	
+	public ImpuestoResponse ImpuestoStudent(CreateImpuestoRequest createImpuestoRequest) {
+
+		Impuesto impuesto = new Impuesto();
+		
+		impuesto.setPlaca(createImpuestoRequest.getVehiculo_placa());
+		
+		
+		ImpuestoResponse impuestoResponse = new ImpuestoResponse(impuesto);
+		impuestoResponse.setVehiculoResponse(vehiculoFeignClient.getById(impuesto.getPlaca()));
+		
+		return impuestoResponse;
+		
+		/*
+		 * student.setFirstName(createStudentRequest.getFirstName());
+		 * student.setLastName(createStudentRequest.getLastName());
+		 * student.setEmail(createStudentRequest.getEmail());
+		 * 
+		 * student.setAddressId(createStudentRequest.getAddressId()); student =
+		 * studentRepository.save(student);
+		 * 
+		 * StudentResponse studentResponse = new StudentResponse(student);
+		 * 
+		 * //studentResponse.setAddressResponse(getAddressById(student.getAddressId()));
+		 * 
+		 * studentResponse.setAddressResponse(addressFeignClient.getById(student.
+		 * getAddressId()));
+		 * 
+		 * return studentResponse;
+		 */
+	}
+	
+	public ImpuestoResponse getById (Double nro_declaracion) {
+		Impuesto impuesto = impuestoRepository.findById(nro_declaracion).get();
+		ImpuestoResponse impuestoResponse = new ImpuestoResponse(impuesto);
+				
+		impuestoResponse.setVehiculoResponse(vehiculoFeignClient.getById(impuesto.getPlaca()));
+		
+		return impuestoResponse;
+	}
+	
+}
+
+

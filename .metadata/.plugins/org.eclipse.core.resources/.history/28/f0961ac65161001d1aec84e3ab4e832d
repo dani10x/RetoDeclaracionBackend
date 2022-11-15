@@ -1,0 +1,18 @@
+package com.Daniel.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.Daniel.entity.Avaluo;
+
+
+@Repository
+public interface AvaluoRepository extends JpaRepository<Avaluo, String>{
+	
+	//@Query(value="SELECT 1 FROM tabla_avaluos WHERE clase_id_clase='300' and modelo=2015 and cilindraje=1600 and linea_id_linea='10001'")
+	//List<Avaluo> prueba(String id_clase, int modelo, int cilindraje, String id_linea);
+	List<Avaluo> findByid_linea();
+}

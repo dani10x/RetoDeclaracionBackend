@@ -1,0 +1,11 @@
+1668043123102	Rename type 'Linea'
+1668043455100	Delete element
+1668043578218	Rename type 'LineaResponse'
+1668043931653	Rename type 'CreateLineaRequest'
+1668044082359	Rename type 'LineaRepository'
+1668044110524	Rename type 'MarcaFeingClient'
+1668044182498	Rename type 'AvaluoFeingClient'
+1668044294888	Rename type 'LineaService'
+1668045029247	Rename type 'LineaController'
+1668124404682	Rename field 'id_linea'
+1668129966186	Copy compilation unit

@@ -1,0 +1,33 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.AvaluoRepository;
+import com.Daniel.response.AvaluoResponse;
+import com.Daniel.entity.Avaluo;
+import com.Daniel.feingclients.ClaseFeingClient;
+
+
+
+@Service
+public class LineaService {
+	
+	@Autowired
+	ClaseFeingClient marcaFeignClient;
+	
+	@Autowired
+	AvaluoRepository lineaRepository;
+	
+	public AvaluoResponse getById (String id_linea) {
+		Avaluo linea = lineaRepository.findById(id_linea).get();
+		AvaluoResponse lineaResponse = new AvaluoResponse(linea);
+				
+		lineaResponse.setMarcaResponse(marcaFeignClient.getById(linea.getId_marca()));
+		
+		return lineaResponse;
+	}
+	
+}
+
+

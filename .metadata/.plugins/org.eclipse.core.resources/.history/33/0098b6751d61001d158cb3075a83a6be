@@ -1,0 +1,44 @@
+package com.Daniel.app;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+@ComponentScan({"com.Daniel.controller", "com.Daniel.service"})
+@EntityScan("com.Daniel.entity")
+@EnableJpaRepositories("com.Daniel.repository")
+@EnableFeignClients("com.Daniel.feingclients")
+public class VehiculoServicioApplication {
+	
+
+	@Value("${clase.servicio.url}")
+	private String claseServicioUrl;
+	
+	@Value("${carroceria.servicio.url}")
+	private String carroceriaServicioUrl;
+
+	@Value("${companias_soat.servicio.url}")
+	private String companias_soatServicioUrl;
+
+	@Value("${caja.servicio.url}")
+	private String cajaServicioUrl;
+
+	@Value("${traccion.servicio.url}")
+	private String traccionServicioUrl;
+
+	@Value("${municipios.servicio.url}")
+	private String municipiosServicioUrl;
+
+	@Value("${linea.servicio.url}")
+	private String lineaServicioUrl;
+
+	public static void main(String[] args) {
+		SpringApplication.run(VehiculoServicioApplication.class, args);
+	}
+
+}

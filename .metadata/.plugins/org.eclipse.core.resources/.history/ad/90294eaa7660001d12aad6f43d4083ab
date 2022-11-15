@@ -1,0 +1,35 @@
+package com.Daniel.response;
+
+import com.Daniel.entity.Municipio;
+
+public class MarcaResponse {
+	
+	private String id_marca;
+	private String nombre;
+	
+	public MarcaResponse(Municipio marca) {
+		this.id_marca = marca.getId_marca();
+		this.nombre = marca.getNombre();
+	}
+
+	public String getId_marca() {
+		return id_marca;
+	}
+
+	public void setId_marca(String id_marca) {
+		this.id_marca = id_marca;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	
+
+	
+	
+}

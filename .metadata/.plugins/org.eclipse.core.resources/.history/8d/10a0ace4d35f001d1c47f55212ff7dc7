@@ -1,0 +1,31 @@
+package com.Daniel.response;
+
+import com.Daniel.entity.Departamento;
+
+public class Compania_soatResponse {
+	
+	private String nit;
+	private String nombre;
+	
+	public Compania_soatResponse(Departamento compania) {
+		this.nit = compania.getNit();
+		this.nombre = compania.getNombre();
+	}
+
+	public String getNit() {
+		return nit;
+	}
+
+	public void setNit(String nit) {
+		this.nit = nit;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+}

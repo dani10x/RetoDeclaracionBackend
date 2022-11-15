@@ -1,0 +1,8 @@
+1668108429484	Rename type 'Municipio'
+1668108892259	Rename type 'MunicipioRepository'
+1668108932049	Rename type 'CreateMunicipioRequest'
+1668109080411	Rename type 'MunicipioResponse'
+1668109255958	Delete element
+1668109391235	Rename type 'DepartamentoFeingClient'
+1668109747131	Rename type 'MunicipioController'
+1668111852026	Rename type 'MunicipioService'

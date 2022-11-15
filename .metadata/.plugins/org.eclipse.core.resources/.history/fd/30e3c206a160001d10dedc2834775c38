@@ -1,0 +1,16 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/Reto
+spring.datasource.username=postgres
+spring.datasource.password=Danielito10
+
+spring.application.name=vehiculos-servicio
+
+
+server.port=8092
+
+clase.servicio.url=http://localhost:8084
+carroceria.servicio.url=http://localhost:8083
+compañias_soat.servicio.url=http://localhost:8085
+caja.servicio.url=http://localhost:8082
+traccion.servicio.url=http://localhost:8088
+municipios.servicio.url=http://localhost:8089
+linea.servicio.url=http://localhost:8087

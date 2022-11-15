@@ -1,0 +1,5 @@
+package com.Daniel.repository;
+
+public interface cajaRepository {
+
+}

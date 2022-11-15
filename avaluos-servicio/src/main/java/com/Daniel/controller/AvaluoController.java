@@ -1,0 +1,31 @@
+package com.Daniel.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Daniel.response.AvaluoResponse;
+import com.Daniel.service.AvaluoService;
+
+
+@RestController
+@RequestMapping("/api/avaluo")
+public class AvaluoController {
+	
+	@Autowired
+	AvaluoService avaluoService;
+	
+	
+	@GetMapping("getById/{id}")
+	public AvaluoResponse getById (@PathVariable String id) {
+		return avaluoService.getById(id);
+	}
+	
+	@GetMapping("getAvaluo/{clase}&{modelo}&{cc}&{linea}")
+	public AvaluoResponse getAvaluo(@PathVariable String clase, @PathVariable int modelo, @PathVariable int cc, @PathVariable String linea) {
+		return avaluoService.getAvaluo(clase, modelo, cc, linea);
+	}
+}

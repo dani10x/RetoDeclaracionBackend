@@ -1,0 +1,50 @@
+package com.Daniel.response;
+
+import java.sql.Date;
+
+import com.Daniel.entity.Impuesto;
+
+public class ImpuestoResponse {
+	
+	private double nro_declaracion;
+	private VehiculoResponse vehiculoResponse;
+	private double valor;
+	private Date fecha;
+	
+	public ImpuestoResponse(Impuesto impuesto) {
+		this.nro_declaracion = impuesto.getNro_declaracion();
+		this.valor = impuesto.getValor();
+		this.fecha = impuesto.getFecha();
+	}
+
+	public String getId_municipio() {
+		return id_municipio;
+	}
+
+	public void setId_municipio(String id_municipio) {
+		this.id_municipio = id_municipio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public DepartamentoResponse getDepartamentoResponse() {
+		return departamentoResponse;
+	}
+
+	public void setDepartamentoResponse(DepartamentoResponse departamentoResponse) {
+		this.departamentoResponse = departamentoResponse;
+	}
+
+	
+
+	
+
+	
+	
+}

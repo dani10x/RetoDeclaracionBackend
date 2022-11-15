@@ -1,0 +1,13 @@
+1668041737178	Rename type 'Municipio'
+1668041846905	Rename type 'MunicipioResponse'
+1668041904344	Delete element
+1668042034387	Rename type 'MunicipioRepository'
+1668042064271	Rename type 'DepartamentoFeingClient'
+1668042166844	Rename type 'CreateMunicipioRequest'
+1668042218011	Rename type 'MunicipioService'
+1668042396586	Rename type 'MunicipioController'
+1668042963324	Copy packages
+1668043593213	Copy compilation unit
+1668043678578	Copy compilation unit
+1668047770625	Copy packages
+1668097214859	Copy compilation unit

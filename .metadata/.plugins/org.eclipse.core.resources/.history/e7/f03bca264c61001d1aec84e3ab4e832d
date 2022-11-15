@@ -1,0 +1,39 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.AvaluoRepository;
+import com.Daniel.response.AvaluoResponse;
+import com.Daniel.entity.Avaluo;
+import com.Daniel.feingclients.ClaseFeingClient;
+import com.Daniel.feingclients.LineaFeingClient;
+
+
+
+@Service
+public class AvaluoService {
+	
+	@Autowired
+	ClaseFeingClient claseFeignClient;
+	
+	@Autowired
+	LineaFeingClient lineaFeingClient;
+	
+	@Autowired
+	AvaluoRepository avaluoRepository;
+	
+	public AvaluoResponse getById (String id_avaluo) {
+		Avaluo avaluo = avaluoRepository.findById(id_avaluo).get();
+		AvaluoResponse avaluoResponse = new AvaluoResponse(avaluo);
+				
+		avaluoResponse.setClaseResponse(claseFeignClient.getById(avaluo.getId_clase()));
+		avaluoResponse.setLineaResponse(lineaFeingClient.getById(avaluo.getId_linea()));
+		avaluoRepository.findByClaseModeloCilindrajeLinea("300", 2015, 1600, "10001");
+		
+		return avaluoResponse;
+	}
+	
+}
+
+

@@ -1,0 +1,14 @@
+package com.Daniel.feingclients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.Daniel.response.AvaluoResponse;
+
+@FeignClient(url = "${avaluo.servicio.url}", value = "avaluo-feign-client", path = "/api/avaluo")
+public interface AvaluoFeingClient {
+
+	@GetMapping("getAvaluo/{clase}&{modelo}&{cc}&{linea}")
+	public AvaluoResponse getAvaluo(@PathVariable String clase, @PathVariable int modelo, @PathVariable int cc, @PathVariable String linea);
+}

@@ -1,0 +1,34 @@
+package com.Daniel.app;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+@ComponentScan({"com.Daniel.controller", "com.Daniel.service"})
+@EntityScan("com.Daniel.entity")
+@EnableJpaRepositories("com.Daniel.repository")
+@EnableFeignClients("com.Daniel.feignclients")
+public class MunicipiosServicioApplication {
+
+	@Value("${departamento.servicio.url}")
+	private String departamentoServicioUrl;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(MunicipiosServicioApplication.class, args);
+	}
+	
+	@Bean
+	public WebClient webClient () {
+		WebClient webClient =WebClient.builder()
+				.baseUrl(departamentoServicioUrl).build();
+		
+		return webClient;
+	}
+
+}

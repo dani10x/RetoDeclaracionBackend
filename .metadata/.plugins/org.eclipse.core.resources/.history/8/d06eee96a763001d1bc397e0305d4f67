@@ -1,0 +1,18 @@
+package com.Daniel.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.Daniel.entity.Vehiculo;
+
+
+@Repository
+public interface VehiculoRepository extends JpaRepository<Vehiculo, String>{
+	
+	@Query(value = "SELECT placa FROM vehiculo", nativeQuery = true)
+	public List<Vehiculo> getAllplacas();
+
+}

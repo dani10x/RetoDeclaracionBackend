@@ -1,0 +1,14 @@
+package com.Daniel.feingclients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.Daniel.response.MunicipioResponse;
+
+@FeignClient(url = "${municipios.servicio.url}", value = "municipios-feign-client", path = "/api/municipios")
+public interface MunicipiosFeingClient {
+
+	@GetMapping("/getById/{id}")
+	public MunicipioResponse getById(@PathVariable String id);
+}

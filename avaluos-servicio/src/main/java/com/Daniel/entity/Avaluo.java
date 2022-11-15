@@ -1,0 +1,83 @@
+package com.Daniel.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tabla_avaluos")
+public class Avaluo {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_avaluo")
+	private String id_avaluo;
+	
+	@Column(name = "clase_id_clase")
+	private String id_clase;
+	
+	@Column(name = "modelo")
+	private int  modelo;
+	
+	@Column(name = "cilindraje")
+	private int cilindraje;
+	
+	@Column(name = "valor")
+	private int valor;
+	
+	@Column(name = "linea_id_linea")
+	private String linea;
+
+	public String getId_avaluo() {
+		return id_avaluo;
+	}
+
+	public void setId_avaluo(String id_avaluo) {
+		this.id_avaluo = id_avaluo;
+	}
+
+	public String getId_clase() {
+		return id_clase;
+	}
+
+	public void setId_clase(String id_clase) {
+		this.id_clase = id_clase;
+	}
+
+	public int getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(int modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getCilindraje() {
+		return cilindraje;
+	}
+
+	public void setCilindraje(int cilindraje) {
+		this.cilindraje = cilindraje;
+	}
+
+	public int getValor() {
+		return valor;
+	}
+
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
+
+	public String getId_linea() {
+		return linea;
+	}
+
+	public void setId_linea(String id_linea) {
+		this.linea = id_linea;
+	}
+	
+	
+}

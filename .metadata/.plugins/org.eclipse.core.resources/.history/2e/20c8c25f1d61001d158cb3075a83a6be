@@ -1,0 +1,5 @@
+package com.Daniel.feingclients;
+
+public interface CompaniaSoatFeingClient {
+
+}

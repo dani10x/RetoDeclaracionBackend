@@ -1,0 +1,30 @@
+package com.Daniel.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.entity.Caja;
+import com.Daniel.repository.cajaRepository;
+import com.Daniel.response.CajaResponse;
+
+@Service
+public class CajaService {
+
+	Logger logger = LoggerFactory.getLogger(CajaService.class);
+	
+	@Autowired
+	cajaRepository cajaRepository1;
+	/*
+	public CajaResponse createCaja(CreateCajaRequest createCajaRequest) {
+		Caja caja = new Caja();
+		caja.setId_caja(createCajaRequest.getId_caja());
+		caja.setNombre(createCajaRequest.getNombre());
+		
+		cajaRepository.save(caja);
+		
+		return new CajaResponse(caja);
+	}*/
+	
+}

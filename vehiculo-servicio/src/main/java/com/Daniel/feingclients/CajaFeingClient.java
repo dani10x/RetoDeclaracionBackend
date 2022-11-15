@@ -1,0 +1,14 @@
+package com.Daniel.feingclients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.Daniel.response.CajaResponse;
+
+@FeignClient(url = "${caja.servicio.url}", value = "caja-feign-client", path = "/api/caja")
+public interface CajaFeingClient {
+
+	@GetMapping("/getById/{id}")
+	public CajaResponse getById(@PathVariable String id);
+}

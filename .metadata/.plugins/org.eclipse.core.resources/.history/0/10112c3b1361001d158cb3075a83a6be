@@ -1,0 +1,47 @@
+package com.Daniel.response;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+
+import com.Daniel.entity.Vehiculo;
+
+public class VehiculoResponse {
+	
+	private String placa;
+	private ClaseResponse claseResponse;
+	private CarroceriaResponse carroceriaResponse;
+	private String grupo;
+	private int puertas;
+	private int capacidad_carga;
+	private char blindado;
+	private char importado;
+	private Compania_soatResponse compania_soatResponse;
+    private String dv;
+    private String poliza;
+    private Date vencimiento_poliza;
+    private CajaResponse cajaResponse;
+    private TraccionResponse traccionResponse;
+    private int modelo;
+    private int cilindraje;
+    private MunicipioResponse municipioResponse;
+    private LineaResponse lineaResponse;
+	
+	public VehiculoResponse(Vehiculo vehiculo) {
+		this.placa = vehiculo.getPlaca();
+		this.grupo = vehiculo.getGrupo();
+		this.puertas = vehiculo.getPuertas();
+		this.capacidad_carga = vehiculo.getCapacidad_carga();
+		this.blindado = vehiculo.getBlindado();
+		this.importado = vehiculo.getImportado();
+		this.dv = vehiculo.getDv();
+		this.poliza = vehiculo.getPoliza();
+		this.vencimiento_poliza = vehiculo.getVencimiento_poliza();
+		this.modelo = vehiculo.getModelo();
+		this.cilindraje = vehiculo.getCilindraje();
+		
+	}
+
+	
+	
+}

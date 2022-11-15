@@ -1,0 +1,33 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.LineaRepository;
+import com.Daniel.response.LineaResponse;
+import com.Daniel.entity.Linea;
+import com.Daniel.feingclients.MarcaFeingClient;
+
+
+
+@Service
+public class LineaService {
+	
+	@Autowired
+	MarcaFeingClient departamentoFeignClient;
+	
+	@Autowired
+	LineaRepository municipioRepository;
+	
+	public LineaResponse getById (String id_municipio) {
+		Linea municipio = municipioRepository.findById(id_municipio).get();
+		LineaResponse municipioResponse = new LineaResponse(municipio);
+				
+		municipioResponse.setDepartamentoResponse(departamentoFeignClient.getById(municipio.getId_departamento()));
+		
+		return municipioResponse;
+	}
+	
+}
+
+

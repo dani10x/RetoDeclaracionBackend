@@ -1,0 +1,20 @@
+package com.Daniel.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.Daniel.entity.Impuesto;
+
+
+@Repository
+public interface ImpuestoRepository extends JpaRepository<Impuesto, Double>{
+	
+	/*
+	 * @Query(
+	 * value="INSERT INTO declaracion_de_impuestos (\"vehiculo_placa\", \"valor\", \"fecha\") VALUES (placa, valor, fecha);"
+	 * , nativeQuery=true) Impuesto guardar(String placa, double valor, String
+	 * fecha);
+	 */
+
+}

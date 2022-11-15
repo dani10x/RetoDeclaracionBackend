@@ -1,0 +1,8 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/Reto
+spring.datasource.username=postgres
+spring.datasource.password=Danielito10
+
+spring.application.name=municipios-servicio
+
+
+server.port=8089

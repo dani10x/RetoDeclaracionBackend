@@ -1,0 +1,33 @@
+package com.Daniel.response;
+
+import com.Daniel.entity.Marca;
+
+public class MarcaResponse {
+	
+	private String id_departamento;
+	private String nombre;
+	
+	public MarcaResponse(Marca departamento) {
+		this.id_departamento = departamento.getId_departamento();
+		this.nombre = departamento.getNombre();
+	}
+
+	public String getId_departamento() {
+		return id_departamento;
+	}
+
+	public void setId_departamento(String id_departamento) {
+		this.id_departamento = id_departamento;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	
+	
+}

@@ -1,0 +1,13 @@
+package com.Daniel.app;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ClaseServicioApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ClaseServicioApplication.class, args);
+	}
+
+}

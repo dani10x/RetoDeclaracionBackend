@@ -1,0 +1,46 @@
+package com.Daniel.response;
+
+import com.Daniel.entity.Impuesto;
+
+public class ImpuestoResponse {
+	
+	private String id_municipio;
+	private String nombre;
+	private DepartamentoResponse departamentoResponse;
+	
+	public ImpuestoResponse(Impuesto municipio) {
+		this.id_municipio = municipio.getId_municipio();
+		this.nombre = municipio.getNombre();
+	}
+
+	public String getId_municipio() {
+		return id_municipio;
+	}
+
+	public void setId_municipio(String id_municipio) {
+		this.id_municipio = id_municipio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public DepartamentoResponse getDepartamentoResponse() {
+		return departamentoResponse;
+	}
+
+	public void setDepartamentoResponse(DepartamentoResponse departamentoResponse) {
+		this.departamentoResponse = departamentoResponse;
+	}
+
+	
+
+	
+
+	
+	
+}

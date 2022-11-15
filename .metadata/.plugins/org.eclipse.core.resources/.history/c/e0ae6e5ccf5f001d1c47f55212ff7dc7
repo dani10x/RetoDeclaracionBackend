@@ -1,0 +1,39 @@
+package com.Daniel.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "carroceria")
+public class Clase {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_carroceria")
+	private String id_carroceria;
+	
+	@Column(name = "nombre")
+	private String nombre;
+
+	public String getId_carroceria() {
+		return id_carroceria;
+	}
+
+	public void setId_carroceria(String id_carroceria) {
+		this.id_carroceria = id_carroceria;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
+}

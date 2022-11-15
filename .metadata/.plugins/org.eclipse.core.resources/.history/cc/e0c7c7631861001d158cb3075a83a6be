@@ -1,0 +1,54 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.VehiculoRepository;
+import com.Daniel.response.VehiculoResponse;
+import com.Daniel.entity.Vehiculo;
+import com.Daniel.feingclients.*;
+
+
+
+@Service
+public class VehiculoService {
+	
+	@Autowired
+	CajaFeingClient cajaFeingClient;
+	
+	@Autowired
+	CarroceriaFeingClient carroceriaFeingClient;
+	
+	@Autowired
+	ClaseFeingClient claseFeingClient;
+	
+	@Autowired
+	Compania_soatFeingClient compania_soatFeingClient;
+	
+	@Autowired
+	LineaFeingClient lineaFeingClient;
+	
+	@Autowired
+	MarcaFeingClient marcaFeingClient;
+	
+	@Autowired
+	MunicipiosFeingClient municipiosFeingClient;
+	
+	@Autowired
+	TraccionFeingClient traccionFeingClient;
+	
+	@Autowired
+	VehiculoRepository vehiculoRepository;
+	
+	public VehiculoResponse getById (String placa) {
+		Vehiculo vehiculo = vehiculoRepository.findById(placa).get();
+		VehiculoResponse lineaResponse = new VehiculoResponse(linea);
+				
+		lineaResponse.setMarcaResponse(marcaFeignClient.getById(linea.getId_marca()));
+		
+		return lineaResponse;
+	}
+	
+}
+
+

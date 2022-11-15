@@ -1,0 +1,33 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.ImpuestoRepository;
+import com.Daniel.response.ImpuestoResponse;
+import com.Daniel.entity.Impuesto;
+import com.Daniel.feingclients.DepartamentoFeingClient;
+
+
+
+@Service
+public class MunicipioService {
+	
+	@Autowired
+	DepartamentoFeingClient departamentoFeignClient;
+	
+	@Autowired
+	ImpuestoRepository municipioRepository;
+	
+	public ImpuestoResponse getById (String id_municipio) {
+		Impuesto municipio = municipioRepository.findById(id_municipio).get();
+		ImpuestoResponse municipioResponse = new ImpuestoResponse(municipio);
+				
+		municipioResponse.setDepartamentoResponse(departamentoFeignClient.getById(municipio.getId_departamento()));
+		
+		return municipioResponse;
+	}
+	
+}
+
+

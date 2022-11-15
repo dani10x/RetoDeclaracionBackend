@@ -1,0 +1,87 @@
+package com.Daniel.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Daniel.repository.ImpuestoRepository;
+import com.Daniel.request.CreateImpuestoRequest;
+import com.Daniel.response.AvaluoResponse;
+import com.Daniel.response.ImpuestoResponse;
+import com.Daniel.response.VehiculoResponse;
+import com.Daniel.entity.Impuesto;
+import com.Daniel.feingclients.AvaluoFeingClient;
+import com.Daniel.feingclients.VehiculoFeingClient;
+
+
+
+@Service
+public class ImpuestoService {
+	
+	@Autowired
+	VehiculoFeingClient vehiculoFeignClient;
+	
+	@Autowired
+	AvaluoFeingClient avaluoFeingClient;
+	
+	@Autowired
+	ImpuestoRepository impuestoRepository;
+	
+	public ImpuestoResponse ImpuestoStudent(CreateImpuestoRequest createImpuestoRequest) {
+
+		Impuesto impuesto = new Impuesto();
+		
+		impuesto.setPlaca(createImpuestoRequest.getVehiculo_placa());
+		
+		VehiculoResponse vehiculoResponse = vehiculoFeignClient.getById(createImpuestoRequest.getVehiculo_placa());
+		AvaluoResponse avaluoResponse = avaluoFeingClient.getAvaluo(vehiculoResponse.getClaseResponse().getId_clase(), 
+				vehiculoResponse.getModelo(), vehiculoResponse.getCilindraje(), vehiculoResponse.getLineaResponse().getId_linea());
+		double valor=0;
+		
+		if((vehiculoResponse.getClaseResponse().getNombre().equals("Motocicleta") && vehiculoResponse.getCilindraje()>125 ) 
+				|| (avaluoResponse.getValor()<20000000)) {
+			valor = avaluoResponse.getValor() *0.015;
+		}
+		else {
+			if(avaluoResponse.getValor()>45000000) {
+				valor = avaluoResponse.getValor() * 0.035;
+			}
+			valor= avaluoResponse.getValor() * 0.025;
+		}
+		
+		ImpuestoResponse impuestoResponse = new ImpuestoResponse(impuesto);
+		impuestoResponse.setVehiculoResponse(vehiculoFeignClient.getById(impuesto.getPlaca()));
+		
+		
+		return impuestoResponse;
+		
+		/*
+		 * student.setFirstName(createStudentRequest.getFirstName());
+		 * student.setLastName(createStudentRequest.getLastName());
+		 * student.setEmail(createStudentRequest.getEmail());
+		 * 
+		 * student.setAddressId(createStudentRequest.getAddressId()); student =
+		 * studentRepository.save(student);
+		 * 
+		 * StudentResponse studentResponse = new StudentResponse(student);
+		 * 
+		 * //studentResponse.setAddressResponse(getAddressById(student.getAddressId()));
+		 * 
+		 * studentResponse.setAddressResponse(addressFeignClient.getById(student.
+		 * getAddressId()));
+		 * 
+		 * return studentResponse;
+		 */
+	}
+	
+	public ImpuestoResponse getById (Double nro_declaracion) {
+		Impuesto impuesto = impuestoRepository.findById(nro_declaracion).get();
+		ImpuestoResponse impuestoResponse = new ImpuestoResponse(impuesto);
+				
+		impuestoResponse.setVehiculoResponse(vehiculoFeignClient.getById(impuesto.getPlaca()));
+		
+		return impuestoResponse;
+	}
+	
+}
+
+
